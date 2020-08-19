@@ -1,0 +1,56 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #404040 #e0e0e0;
+}
+*::-webkit-scrollbar {
+  width: 7px;
+}
+*::-webkit-scrollbar-track {
+  background: #e0e0e0;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #404040;
+}
+
+body {
+  overflow-y: scroll;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.image {
+  object-fit: contain;
+}
+
+.normalized-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.loading {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
