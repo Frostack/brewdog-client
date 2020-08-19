@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
-import dummyReducer from './dummyReducer';
+import searchReducer from './searchReducer';
+import modalReducer from './modalReducer';
+import storageReducer from './storageReducer';
 
 export default combineReducers({
-  dummy: dummyReducer,
+  search: searchReducer,
+  modal: modalReducer,
+  storage: storageReducer,
 });
