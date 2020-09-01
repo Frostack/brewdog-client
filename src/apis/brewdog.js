@@ -4,7 +4,7 @@ import store from '../store'
 import { showError } from '../actions'
 
 const instance = axios.create({
-  baseURL: 'https://api.punkapi.com/v2',
+  baseURL: process.env.REACT_APP_API_URL,
 })
 
 instance.interceptors.request.use(
