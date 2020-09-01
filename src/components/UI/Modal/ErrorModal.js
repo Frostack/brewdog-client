@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Alert from 'react-bootstrap/Alert';
-import { BsX } from 'react-icons/bs';
+import React from 'react'
+import { connect } from 'react-redux'
+import Alert from 'react-bootstrap/Alert'
+import { BsX } from 'react-icons/bs'
 
-import { hideError } from '../../../actions';
+import { hideError } from '../../../actions'
 
 function ErrorModal({ show, msg, hideError }) {
   return (
@@ -14,18 +14,18 @@ function ErrorModal({ show, msg, hideError }) {
       </Alert.Heading>
       <p>{msg}</p>
     </Alert>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     show: state.modal.error.show,
     msg: state.modal.error.msg,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   hideError,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ErrorModal);
+export default connect(mapStateToProps, mapDispatchToProps)(ErrorModal)

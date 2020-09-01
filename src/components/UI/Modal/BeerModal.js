@@ -1,22 +1,22 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Button from 'react-bootstrap/Button';
-import { BsBagFill } from 'react-icons/bs';
+import React from 'react'
+import { connect } from 'react-redux'
+import Button from 'react-bootstrap/Button'
+import { BsBagFill } from 'react-icons/bs'
 
-import { cartHasItem, addCartItem } from '../../../utils';
-import { hideModal } from '../../../actions';
-import CustomModal from './CustomModal';
-import BeerImage from '../BeerImage';
-import PriceTag from '../PriceTag';
+import { cartHasItem, addCartItem } from '../../../utils'
+import { hideModal } from '../../../actions'
+import CustomModal from './CustomModal'
+import BeerImage from '../BeerImage'
+import PriceTag from '../PriceTag'
 
 function BeerModal({ data, show, hideModal }) {
   const renderButton = () => {
     const handleClick = () => {
-      addCartItem(data.id);
-      hideModal();
-    };
+      addCartItem(data.id)
+      hideModal()
+    }
 
-    const disabled = cartHasItem(data.id);
+    const disabled = cartHasItem(data.id)
 
     return (
       <Button
@@ -27,8 +27,8 @@ function BeerModal({ data, show, hideModal }) {
       >
         {disabled ? 'Already in Cart' : 'Add to Cart'} <BsBagFill size={18} className="ml-3" />
       </Button>
-    );
-  };
+    )
+  }
 
   return (
     <CustomModal onHide={hideModal} show={show} tagline={data.tagline} title={data.name}>
@@ -52,18 +52,18 @@ function BeerModal({ data, show, hideModal }) {
         </div>
       </div>
     </CustomModal>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     show: state.modal.show,
     data: state.modal.data,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   hideModal,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerModal);
+export default connect(mapStateToProps, mapDispatchToProps)(BeerModal)

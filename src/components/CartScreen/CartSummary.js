@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 
-import PriceTag from '../UI/PriceTag';
+import PriceTag from '../UI/PriceTag'
 
 function CartSummary({ totalPrice }) {
   return (
@@ -11,13 +11,13 @@ function CartSummary({ totalPrice }) {
         <PriceTag price={totalPrice} />
       </h2>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     totalPrice: state.storage.cart.reduce((prev, cur) => prev + cur.srm, 0),
-  };
-};
+  }
+}
 
-export default connect(mapStateToProps)(CartSummary);
+export default connect(mapStateToProps)(CartSummary)

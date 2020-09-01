@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Badge from 'react-bootstrap/Badge';
+import React from 'react'
+import { connect } from 'react-redux'
+import Badge from 'react-bootstrap/Badge'
 
-import { changeSort } from '../../../actions';
+import { changeSort } from '../../../actions'
 
 function FilterItem({ children, type, changeSort, currentSort }) {
-  const disabled = currentSort === type;
-  const variant = disabled ? 'primary' : 'secondary';
+  const disabled = currentSort === type
+  const variant = disabled ? 'primary' : 'secondary'
 
   return (
     <button
@@ -18,17 +18,17 @@ function FilterItem({ children, type, changeSort, currentSort }) {
         {children}
       </Badge>
     </button>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     currentSort: state.search.sortType,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   changeSort,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterItem);
+export default connect(mapStateToProps, mapDispatchToProps)(FilterItem)

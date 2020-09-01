@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Card from 'react-bootstrap/Card';
-import { BsTrash } from 'react-icons/bs';
+import React from 'react'
+import { connect } from 'react-redux'
+import Card from 'react-bootstrap/Card'
+import { BsTrash } from 'react-icons/bs'
 
-import { deleteCartItem } from '../../../actions';
-import BeerImage from '../../UI/BeerImage';
-import PriceTag from '../../UI/PriceTag';
+import { deleteCartItem } from '../../../actions'
+import BeerImage from '../../UI/BeerImage'
+import PriceTag from '../../UI/PriceTag'
 
 function CartItem({ deleteCartItem, data }) {
   return (
@@ -30,11 +30,11 @@ function CartItem({ deleteCartItem, data }) {
         </div>
       </div>
     </Card>
-  );
+  )
 }
 
 const mapDispatchToProps = {
   deleteCartItem,
-};
+}
 
-export default connect(null, mapDispatchToProps)(CartItem);
+export default connect(null, mapDispatchToProps)(CartItem)

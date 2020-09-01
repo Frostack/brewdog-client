@@ -1,15 +1,15 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Card from 'react-bootstrap/Card';
-import { BsHeart, BsHeartFill, BsArrowRightShort } from 'react-icons/bs';
+import React from 'react'
+import { connect } from 'react-redux'
+import Card from 'react-bootstrap/Card'
+import { BsHeart, BsHeartFill, BsArrowRightShort } from 'react-icons/bs'
 
-import { showModal, addFavorite, removeFavorite } from '../../../actions';
-import BeerImage from '../../UI/BeerImage';
-import PriceTag from '../../UI/PriceTag';
+import { showModal, addFavorite, removeFavorite } from '../../../actions'
+import BeerImage from '../../UI/BeerImage'
+import PriceTag from '../../UI/PriceTag'
 
 function BeerItem({ data, favorites, showModal, addFavorite, removeFavorite }) {
   const renderHeart = () => {
-    const isMarked = favorites.some(itemID => itemID === data.id);
+    const isMarked = favorites.some(itemID => itemID === data.id)
     if (isMarked) {
       return (
         <BsHeartFill
@@ -17,7 +17,7 @@ function BeerItem({ data, favorites, showModal, addFavorite, removeFavorite }) {
           className="cursor-pointer flex-shrink-0 text-danger"
           onClick={() => removeFavorite(data.id)}
         />
-      );
+      )
     }
     return (
       <BsHeart
@@ -25,8 +25,8 @@ function BeerItem({ data, favorites, showModal, addFavorite, removeFavorite }) {
         className="cursor-pointer flex-shrink-0"
         onClick={() => addFavorite(data.id)}
       />
-    );
-  };
+    )
+  }
 
   return (
     <Card bg="light" className="mb-5 p-4" style={{ flexBasis: '31%' }}>
@@ -55,19 +55,19 @@ function BeerItem({ data, favorites, showModal, addFavorite, removeFavorite }) {
         </div>
       </div>
     </Card>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     favorites: state.storage.favorites,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   showModal,
   addFavorite,
   removeFavorite,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerItem);
+export default connect(mapStateToProps, mapDispatchToProps)(BeerItem)

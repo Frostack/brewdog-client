@@ -1,9 +1,9 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs';
+import React from 'react'
+import { connect } from 'react-redux'
+import { BsCaretLeftFill, BsCaretRightFill } from 'react-icons/bs'
 
-import { ITEMS_PER_PAGE } from '../../../constants';
-import { changePage } from '../../../actions';
+import { ITEMS_PER_PAGE } from '../../../constants'
+import { changePage } from '../../../actions'
 
 function ListPagination({ isFirstPage, isLastPage, changePage }) {
   return (
@@ -16,18 +16,18 @@ function ListPagination({ isFirstPage, isLastPage, changePage }) {
         <BsCaretRightFill size={20} />
       </button>
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => {
   return {
     isFirstPage: state.search.page === 1 || !state.search.data,
     isLastPage: state.search?.data?.length !== ITEMS_PER_PAGE || !state.search.data,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   changePage,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListPagination);
+export default connect(mapStateToProps, mapDispatchToProps)(ListPagination)

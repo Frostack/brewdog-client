@@ -1,2 +1,2 @@
-export * from './cartStorage';
-export * from './favoriteStorage';
+export * from './cartStorage'
+export * from './favoriteStorage'

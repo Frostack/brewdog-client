@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-import { loadFavorites } from '../../actions';
-import { fetchBeers, clearBeersCache, resetPage, fetchFavoriteItems } from '../../actions';
-import ListFilter from './ListFilter/ListFilter';
-import BeerList from './BeerList/BeerList';
+import { loadFavorites } from '../../actions'
+import { fetchBeers, clearBeersCache, resetPage, fetchFavoriteItems } from '../../actions'
+import ListFilter from './ListFilter/ListFilter'
+import BeerList from './BeerList/BeerList'
 
 function BeerScreen({
   match,
@@ -18,26 +18,26 @@ function BeerScreen({
   loadFavorites,
 }) {
   useEffect(() => {
-    resetPage();
-  }, [resetPage, match.path]);
+    resetPage()
+  }, [resetPage, match.path])
 
   useEffect(() => {
     switch (match.path) {
       case '/pizzas':
-        fetchBeers(currentPage, 'pizza');
-        break;
+        fetchBeers(currentPage, 'pizza')
+        break
       case '/steaks':
-        fetchBeers(currentPage, 'steak');
-        break;
+        fetchBeers(currentPage, 'steak')
+        break
       case '/favorites':
-        loadFavorites();
-        fetchFavoriteItems();
-        break;
+        loadFavorites()
+        fetchFavoriteItems()
+        break
       default:
-        fetchBeers(currentPage);
+        fetchBeers(currentPage)
     }
-    return clearBeersCache;
-  }, [fetchBeers, clearBeersCache, fetchFavoriteItems, loadFavorites, match.path, currentPage]);
+    return clearBeersCache
+  }, [fetchBeers, clearBeersCache, fetchFavoriteItems, loadFavorites, match.path, currentPage])
 
   return (
     <div className="px-5">
@@ -45,7 +45,7 @@ function BeerScreen({
       <ListFilter />
       <BeerList items={items} sortType={sortType} />
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => {
@@ -53,8 +53,8 @@ const mapStateToProps = state => {
     items: state.search.data,
     currentPage: state.search.page,
     sortType: state.search.sortType,
-  };
-};
+  }
+}
 
 const mapDispatchToProps = {
   fetchBeers,
@@ -62,6 +62,6 @@ const mapDispatchToProps = {
   resetPage,
   fetchFavoriteItems,
   loadFavorites,
-};
+}
 
-export default connect(mapStateToProps, mapDispatchToProps)(BeerScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(BeerScreen)

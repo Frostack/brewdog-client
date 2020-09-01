@@ -1,5 +1,5 @@
-import React from 'react';
-import Modal from 'react-bootstrap/Modal';
+import React from 'react'
+import Modal from 'react-bootstrap/Modal'
 
 function CustomModal({ children, show, onHide, title, tagline }) {
   return (
@@ -11,7 +11,7 @@ function CustomModal({ children, show, onHide, title, tagline }) {
 
       <Modal.Body className="p-0">{children}</Modal.Body>
     </Modal>
-  );
+  )
 }
 
-export default CustomModal;
+export default CustomModal

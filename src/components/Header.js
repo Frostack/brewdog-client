@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
-import { BsStarFill, BsHeartFill, BsBagFill } from 'react-icons/bs';
-import { LinkContainer } from 'react-router-bootstrap';
+import React from 'react'
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import { BsStarFill, BsHeartFill, BsBagFill } from 'react-icons/bs'
+import { LinkContainer } from 'react-router-bootstrap'
 
 function Header() {
   return (
@@ -40,7 +40,7 @@ function Header() {
         </LinkContainer>
       </Nav>
     </Navbar>
-  );
+  )
 }
 
-export default Header;
+export default Header

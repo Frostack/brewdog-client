@@ -1,11 +1,11 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
-import Header from './Header';
-import BeerScreen from './BeerScreen/BeerScreen';
-import CartScreen from './CartScreen/CartScreen';
-import BeerModal from './UI/Modal/BeerModal';
-import ErrorModal from './UI/Modal/ErrorModal';
+import Header from './Header'
+import BeerScreen from './BeerScreen/BeerScreen'
+import CartScreen from './CartScreen/CartScreen'
+import BeerModal from './UI/Modal/BeerModal'
+import ErrorModal from './UI/Modal/ErrorModal'
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
       <BeerModal />
       <ErrorModal />
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,9 +1,9 @@
-import React from 'react';
-import { BsChevronDoubleUp, BsChevronDoubleDown } from 'react-icons/bs';
+import React from 'react'
+import { BsChevronDoubleUp, BsChevronDoubleDown } from 'react-icons/bs'
 
-import * as sortTypes from '../../../constants/sortTypes';
-import FilterItem from './FilterItem';
-import ListPagination from './ListPagination';
+import * as sortTypes from '../../../constants/sortTypes'
+import FilterItem from './FilterItem'
+import ListPagination from './ListPagination'
 
 function ListFilter({ changeSort, currentSort }) {
   return (
@@ -26,7 +26,7 @@ function ListFilter({ changeSort, currentSort }) {
 
       <ListPagination />
     </div>
-  );
+  )
 }
 
-export default ListFilter;
+export default ListFilter
