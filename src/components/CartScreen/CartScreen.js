@@ -6,9 +6,9 @@ import Col from 'react-bootstrap/Col'
 import { fetchCartItems, clearCartCache } from '../../actions'
 import CartList from './CartList/CartList'
 import CartSummary from './CartSummary'
-import Loading from '../UI/Loading'
+import { Loading } from '../common'
 
-function CartScreen({ fetchCartItems, clearCartCache, items }) {
+function CartScreen({ fetchCartItems, clearCartCache, items, totalPrice }) {
   useEffect(() => {
     fetchCartItems()
     return clearCartCache
@@ -22,7 +22,7 @@ function CartScreen({ fetchCartItems, clearCartCache, items }) {
         <CartList items={items} />
       </Col>
       <Col>
-        <CartSummary />
+        <CartSummary totalPrice={totalPrice} />
       </Col>
     </Row>
   )
@@ -31,6 +31,7 @@ function CartScreen({ fetchCartItems, clearCartCache, items }) {
 const mapStateToProps = state => {
   return {
     items: state.storage.cart,
+    totalPrice: state?.storage?.cart?.reduce((prev, cur) => prev + cur.srm, 0),
   }
 }
 

@@ -1,31 +1,14 @@
-import _ from 'lodash'
 import React from 'react'
 
-import * as sortTypes from '../../../constants/sortTypes'
 import BeerItem from './BeerItem'
-import NotFound from '../../UI/NotFound'
-import Loading from '../../UI/Loading'
+import { NotFound, Loading } from '../../common'
 
-function BeerList({ items, sortType }) {
+function BeerList({ items, favorites }) {
   const renderItems = () => {
-    let beers
-    switch (sortType) {
-      case sortTypes.ABV_TO_LOW:
-        beers = _.sortBy(items, 'abv').reverse()
-        break
-      case sortTypes.ABV_TO_HIGH:
-        beers = _.sortBy(items, 'abv')
-        break
-      case sortTypes.NAME_ASCENDING:
-        beers = _.sortBy(items, 'name')
-        break
-      case sortTypes.NAME_DESCENDING:
-        beers = _.sortBy(items, 'name').reverse()
-        break
-      default:
-        beers = items
-    }
-    return beers.map(beer => <BeerItem key={beer.id} data={beer} />)
+    return items.map(item => {
+      const isMarked = favorites.some(itemID => itemID === item.id)
+      return <BeerItem key={item.id} data={item} isMarked={isMarked} />
+    })
   }
 
   if (!items) return <Loading />

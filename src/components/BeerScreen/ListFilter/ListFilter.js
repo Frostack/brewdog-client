@@ -2,27 +2,27 @@ import React from 'react'
 import { BsChevronDoubleUp, BsChevronDoubleDown } from 'react-icons/bs'
 
 import * as sortTypes from '../../../constants/sortTypes'
-import FilterItem from './FilterItem'
+import ListFilterItem from './ListFilterItem'
 import ListPagination from './ListPagination'
 
-function ListFilter({ changeSort, currentSort }) {
+function ListFilter() {
   return (
     <div className="py-4 d-flex align-items-center">
       <span className="mr-3">Sort by</span>
 
-      <FilterItem type={sortTypes.DEFAULT}>default</FilterItem>
-      <FilterItem type={sortTypes.ABV_TO_HIGH}>
+      <ListFilterItem type={sortTypes.DEFAULT}>default</ListFilterItem>
+      <ListFilterItem type={sortTypes.ABV_TO_HIGH}>
         Abv: low to high <BsChevronDoubleUp />
-      </FilterItem>
-      <FilterItem type={sortTypes.ABV_TO_LOW}>
+      </ListFilterItem>
+      <ListFilterItem type={sortTypes.ABV_TO_LOW}>
         Abv: hight to low <BsChevronDoubleDown />
-      </FilterItem>
-      <FilterItem type={sortTypes.NAME_ASCENDING}>
+      </ListFilterItem>
+      <ListFilterItem type={sortTypes.NAME_ASCENDING}>
         name: ascending <BsChevronDoubleUp />
-      </FilterItem>
-      <FilterItem type={sortTypes.NAME_DESCENDING}>
+      </ListFilterItem>
+      <ListFilterItem type={sortTypes.NAME_DESCENDING}>
         name: descending <BsChevronDoubleDown />
-      </FilterItem>
+      </ListFilterItem>
 
       <ListPagination />
     </div>

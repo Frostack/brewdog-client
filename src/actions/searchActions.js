@@ -3,14 +3,15 @@ import { ITEMS_PER_PAGE } from '../constants'
 import api from '../apis/brewdog'
 
 export const fetchBeers = (page, food) => async dispatch => {
+  const requestData = {
+    params: {
+      page,
+      food,
+      per_page: ITEMS_PER_PAGE,
+    },
+  }
   try {
-    const response = await api.get('/beers', {
-      params: {
-        page,
-        food,
-        per_page: ITEMS_PER_PAGE,
-      },
-    })
+    const response = await api.get('/beers', requestData)
     dispatch({ type: types.BEERS_FETCH, data: response.data })
   } catch {}
 }

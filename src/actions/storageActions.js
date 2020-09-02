@@ -10,13 +10,13 @@ export const fetchCartItems = () => async dispatch => {
     dispatch({ type: types.CART_FETCH_ITEMS, data: [] })
     return
   }
-
+  const requestData = {
+    params: {
+      ids: cart,
+    },
+  }
   try {
-    const response = await api.get('/beers', {
-      params: {
-        ids: cart,
-      },
-    })
+    const response = await api.get('/beers', requestData)
     dispatch({ type: types.CART_FETCH_ITEMS, data: response.data })
   } catch {}
 }
@@ -27,13 +27,13 @@ export const fetchFavoriteItems = () => async (dispatch, getState) => {
     dispatch({ type: types.FAVORITES_FETCH, data: [] })
     return
   }
-
+  const requestData = {
+    params: {
+      ids: favorites.join('|'),
+    },
+  }
   try {
-    const response = await api.get('/beers', {
-      params: {
-        ids: favorites.join('|'),
-      },
-    })
+    const response = await api.get('/beers', requestData)
     dispatch({ type: types.FAVORITES_FETCH, data: response.data })
   } catch {}
 }

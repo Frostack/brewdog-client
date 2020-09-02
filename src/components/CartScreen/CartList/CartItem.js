@@ -4,16 +4,13 @@ import Card from 'react-bootstrap/Card'
 import { BsTrash } from 'react-icons/bs'
 
 import { deleteCartItem } from '../../../actions'
-import BeerImage from '../../UI/BeerImage'
-import PriceTag from '../../UI/PriceTag'
+import { Image, PriceTag } from '../../common'
 
 function CartItem({ deleteCartItem, data }) {
   return (
     <Card bg="light" className="m-5 p-4">
       <div className="d-flex">
-        <div>
-          <BeerImage width={150} height={175} src={data.image_url} alt={data.name} />
-        </div>
+        <Image width={150} height={175} src={data.image_url} alt={data.name} />
 
         <div className="flex-grow-1 d-flex flex-column align-items-center">
           <BsTrash
