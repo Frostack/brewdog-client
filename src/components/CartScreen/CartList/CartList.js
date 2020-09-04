@@ -2,9 +2,13 @@ import React from 'react'
 
 import CartItem from './CartItem'
 
-function CartList({ items }) {
+function CartList({ items, horizontal }) {
   const renderItems = () => {
     return items.map(beer => <CartItem key={beer.id} data={beer} />)
+  }
+
+  if (horizontal) {
+    return <div>{renderItems()}</div>
   }
 
   return (
