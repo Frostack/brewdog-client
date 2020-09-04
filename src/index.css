@@ -54,3 +54,7 @@ body {
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.vw-90 {
+  widows: 90vw;
+}
