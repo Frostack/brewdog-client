@@ -1,28 +1,24 @@
 import React from 'react'
-import { BsChevronDoubleUp, BsChevronDoubleDown } from 'react-icons/bs'
 
-import * as sortTypes from '../../../constants/sortTypes'
-import ListFilterItem from './ListFilterItem'
+import filterItems from './filterItems'
+import { useDeviceSize } from '../../../hooks'
 import ListPagination from './ListPagination'
+import PillFilters from './Pill/PillFilters'
+import DropdownFilters from './Dropdown/DropdownFilters'
 
 function ListFilter() {
+  const deviceSize = useDeviceSize()
+
+  const renderItems = () => {
+    if (deviceSize === 'EXTRA_LARGE' || deviceSize === 'LARGE') {
+      return <PillFilters filters={filterItems} />
+    }
+    return <DropdownFilters filters={filterItems} />
+  }
+
   return (
     <div className="py-4 d-flex align-items-center">
-      <span className="mr-3">Sort by</span>
-
-      <ListFilterItem type={sortTypes.DEFAULT}>default</ListFilterItem>
-      <ListFilterItem type={sortTypes.ABV_TO_HIGH}>
-        Abv: low to high <BsChevronDoubleUp />
-      </ListFilterItem>
-      <ListFilterItem type={sortTypes.ABV_TO_LOW}>
-        Abv: hight to low <BsChevronDoubleDown />
-      </ListFilterItem>
-      <ListFilterItem type={sortTypes.NAME_ASCENDING}>
-        name: ascending <BsChevronDoubleUp />
-      </ListFilterItem>
-      <ListFilterItem type={sortTypes.NAME_DESCENDING}>
-        name: descending <BsChevronDoubleDown />
-      </ListFilterItem>
+      {renderItems()}
 
       <ListPagination />
     </div>

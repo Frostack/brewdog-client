@@ -2,8 +2,13 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 
 import { sortByType } from '../../utils'
-import { loadFavorites } from '../../actions'
-import { fetchBeers, clearBeersCache, resetPage, fetchFavoriteItems } from '../../actions'
+import {
+  fetchBeers,
+  clearBeersCache,
+  resetPage,
+  fetchFavoriteItems,
+  loadFavorites,
+} from '../../actions'
 import ListFilter from './ListFilter/ListFilter'
 import BeerList from './BeerList/BeerList'
 
@@ -44,7 +49,7 @@ function BeerScreen({
   const sortedItems = sortByType(sortType, items)
 
   return (
-    <div className="px-5">
+    <div className="px-4 px-sm-5">
       <div className="mt-5 pt-2" />
       <ListFilter />
       <BeerList items={sortedItems} favorites={favorites} />

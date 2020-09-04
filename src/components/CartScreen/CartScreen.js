@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import { fetchCartItems, clearCartCache } from '../../actions'
+import { useDeviceSize } from '../../hooks'
 import CartList from './CartList/CartList'
 import CartSummary from './CartSummary'
 import { Loading } from '../common'
@@ -14,18 +15,29 @@ function CartScreen({ fetchCartItems, clearCartCache, items, totalPrice }) {
     return clearCartCache
   }, [fetchCartItems, clearCartCache])
 
+  const deviceSize = useDeviceSize()
+
   if (!items) return <Loading />
 
-  return (
-    <Row className="vh-100" style={{ paddingTop: 56 }} noGutters>
-      <Col>
-        <CartList items={items} />
-      </Col>
-      <Col>
+  if (deviceSize === 'EXTRA_LARGE' || deviceSize === 'LARGE') {
+    return (
+      <Row className="vh-100" style={{ paddingTop: 56 }} noGutters>
+        <Col>
+          <CartList items={items} />
+        </Col>
+        <Col>
+          <CartSummary totalPrice={totalPrice} />
+        </Col>
+      </Row>
+    )
+  } else {
+    return (
+      <div style={{ paddingTop: 56 }}>
         <CartSummary totalPrice={totalPrice} />
-      </Col>
-    </Row>
-  )
+        <CartList items={items} horizontal />
+      </div>
+    )
+  }
 }
 
 const mapStateToProps = state => {
